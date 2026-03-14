@@ -1,5 +1,7 @@
 // Record.cpp
-// Implementation of the Record class defined in Record.hpp, which is used to represent a record in the C++ Data Converter (CDC) system, allowing it to hold various fields as key-value pairs
+// Implementation of the Record class defined in Record.hpp, which is 
+// used to represent a record in the C++ Data Converter (CDC) system, 
+// allowing it to hold various fields as key-value pairs
 
 #include "Record.hpp"
 
