@@ -8,7 +8,10 @@ namespace CDC
 {
     class CSVParser : public Parser
     {
-        public:
+    private:
+        std::vector<std::string> splitLines(const std::string& content) const;
+        std::vector<std::string> splitRow(const std::string& line) const;
+    public:
             Dataset parse(const std::string& content) const override;
     };
 }
