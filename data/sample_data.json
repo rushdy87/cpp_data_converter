@@ -1,0 +1,7 @@
+[
+  { "id": "1", "name": "Ali", "age": "25", "city": "Baghdad" },
+  { "id": "2", "name": "Sara", "age": "30", "city": "Basra" },
+  { "id": "3", "name": "Omar", "age": "22", "city": "Najaf" },
+  { "id": "4", "name": "Lina", "age": "28", "city": "Erbil" },
+  { "id": "5", "name": "Hassan", "age": "35", "city": "Mosul" }
+]
