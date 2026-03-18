@@ -3,6 +3,7 @@
 #include <sstream>
 
 #include "parser/JSONParser.hpp"
+#include "writer/CSVWriter.hpp"
 
 int main() {
     std::ifstream file("data/sample_data.json");
@@ -20,19 +21,11 @@ int main() {
     CDC::JSONParser parser;
     CDC::Dataset dataset = parser.parse(content);
 
-    std::cout << "Headers:\n";
-    for (const auto& h : dataset.getHeaders()) {
-        std::cout << h << " ";
-    }
+    CDC::CSVWriter writer;
+    std::string csv = writer.write(dataset);
 
-    std::cout << "\n\nRecords:\n";
-
-    for (const auto& record : dataset.getRecords()) {
-        for (const auto& [key, value] : record.getFields()) {
-            std::cout << key << ": " << value << " ";
-        }
-        std::cout << "\n";
-    }
+    std::cout << "CSV Output:\n";
+    std::cout << csv << "\n";
 
     return 0;
 }
