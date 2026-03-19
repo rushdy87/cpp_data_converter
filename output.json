@@ -1,0 +1,12 @@
+[
+{ "id": "1", "name": "Ali", "age": "25", "city": "Baghdad" },
+{ "id": "2", "name": "Sara", "age": "30", "city": "Basra" },
+{ "id": "3", "name": "Omar", "age": "22", "city": "Najaf" },
+{ "id": "4", "name": "Layla", "age": "28", "city": "Karbala" },
+{ "id": "5", "name": "Hassan", "age": "35", "city": "Mosul" },
+{ "id": "6", "name": "Zainab", "age": "27", "city": "Hilla" },
+{ "id": "7", "name": "Mustafa", "age": "31", "city": "Kirkuk" },
+{ "id": "8", "name": "Rana", "age": "24", "city": "Erbil" },
+{ "id": "9", "name": "Ahmad", "age": "29", "city": "Sulaymaniyah" },
+{ "id": "10", "name": "Maryam", "age": "26", "city": "Diwaniyah" }
+]

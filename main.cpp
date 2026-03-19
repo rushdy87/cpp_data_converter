@@ -1,31 +1,32 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
+#include <stdexcept>
 
-#include "parser/JSONParser.hpp"
-#include "writer/CSVWriter.hpp"
+#include "core/Converter.hpp"
+#include "core/Format.hpp"
+#include "core/FormatUtils.hpp"
 
-int main() {
-    std::ifstream file("data/sample_data.json");
-
-    if (!file.is_open()) {
-        std::cerr << "Failed to open file\n";
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: ./converter <input_file> <output_file>\n";
         return 1;
     }
 
-    std::stringstream buffer;
-    buffer << file.rdbuf();
+    try {
+        std::string inputPath = argv[1];
+        std::string outputPath = argv[2];
 
-    std::string content = buffer.str();
+        CDC::Format inputFormat = CDC::FormatUtils::detectFormatFromExtension(inputPath);
+        CDC::Format outputFormat = CDC::FormatUtils::detectFormatFromExtension(outputPath);
 
-    CDC::JSONParser parser;
-    CDC::Dataset dataset = parser.parse(content);
+        CDC::Converter converter;
+        converter.convert(inputPath, outputPath, inputFormat, outputFormat);
 
-    CDC::CSVWriter writer;
-    std::string csv = writer.write(dataset);
-
-    std::cout << "CSV Output:\n";
-    std::cout << csv << "\n";
+        std::cout << "Conversion completed successfully.\n";
+    }
+    catch (const std::exception& ex) {
+        std::cerr << "Error: " << ex.what() << "\n";
+        return 1;
+    }
 
     return 0;
 }
